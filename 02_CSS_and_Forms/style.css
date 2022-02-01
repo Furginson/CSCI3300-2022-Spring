@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 300%;
+}
+p {
+    font-size: 14pt;
+}
+li {
+    font-size: 20px;
+}
+#welcome-message {
+    font-weight: bold;
+    text-decoration: line-through;
+}
+.my-lists {
+    color: cornflowerblue;
+}
+
+#my-box {
+    border: 1px solid black;
+    padding: 3px;
+    margin: 50px;
+    width: 200px;
+    box-sizing: border-box;
+}
+
+/*
+    This is a note, which is ignored by CSS
+*/
