@@ -6,45 +6,47 @@
 <!-- 2/1/2022 -->
 
 <html lang="en">
-    <head>
-        <title>Vincent Tran's Image Display Application</title>
-        <meta charset="utf-8">
-        <script>
-            function imageDisplay() {
-                var theImage = "<img src=\"cousinneighborhood.jpg\" alt=\"test\" width=500 height=500>";
-                document.getElementById("myimage").innerHTML = theImage;
-            }
-        </script>
-        <style>
-            header {
-                text-align: center;
-            }
-            #myimage {
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1>Vincent Tran's <i>Image Display Application</i></h1>
-            <hr>
-            <br>
-        </header>
+  <head>
+    <title>Vincent Tran's Image Display Application</title>
+    <meta charset="utf-8" />
+    <script>
+      function imageDisplay() {
+        var theImage =
+          '<img src="cousinneighborhood.jpg" alt="test" width=500 height=500>';
+        document.getElementById("myimage").innerHTML = theImage;
+      }
+    </script>
+    <style>
+      header {
+        text-align: center;
+      }
+      #myimage {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Vincent Tran's <i>Image Display Application</i></h1>
+      <hr />
+      <br />
+    </header>
 
-        <div id="myimage">
-            Inside this div will magically appear a picture of a pond if you press the button below!
-        </div>
+    <div id="myimage">
+      Inside this div will magically appear a picture of a pond if you press the
+      button below!
+    </div>
 
-        <br>
+    <br />
 
-        <form name="imageForm" action="javascript:imageDisplay()">
-            <input type="submit" value="Click for Magic!">
-        </form>
+    <form name="imageForm" action="javascript:imageDisplay()">
+      <input type="submit" value="Click for Magic!" />
+    </form>
 
-        <footer>
-            <br>
-            <hr>
-            <p>Copyright 2022 &copy; Vincent Tran</p>
-        </footer>
-    </body>
+    <footer>
+      <br />
+      <hr />
+      <p>Copyright 2022 &copy; Vincent Tran</p>
+    </footer>
+  </body>
 </html>

@@ -5,18 +5,72 @@
 <!-- CSCI 3300-04 -->
 <!-- 2/1/2022 -->
 
-<html lang="en">
-    <head>
-        <title>Name of Application</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <header>
-            <h1>Name of Application</h1>
-        </header>
+<!--
+    - Children under 12 get in free
+    - Children 12-16 cost $10
+    - Anyone 17 or older cost $13
+-->
 
-        <footer>
-            <p>Copyright 2022 &copy; Vincent Tran</p>
-        </footer>
-    </body>
+<html lang="en">
+  <head>
+    <title>Vincent Tran's Movie Ticket App</title>
+    <meta charset="utf-8" />
+    <script>
+      function checkAge() {
+        let age = parseFloat(document.priceForm.age.value);
+        if (age < 12) {
+          if (age < 0) {
+            document.getElementById("price").innerHTML =
+              "<b>You can't be negative years old!</b>";
+          } else {
+            document.getElementById("price").innerHTML =
+              "<b>Your ticket price is free.</b>";
+          }
+        } else if (age >= 12 && age <= 16) {
+          document.getElementById("price").innerHTML =
+            "<b>Your ticket price is $10.</b>";
+        } else if (age >= 17) {
+          document.getElementById("price").innerHTML =
+            "<b>Your ticket price is $13.</b>";
+        }
+      }
+    </script>
+    <style>
+      header {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Vincent Tran's Movie Ticket App</h1>
+      <hr />
+      <br />
+    </header>
+
+    <div>
+      <h2>Prices:</h2>
+      <ul>
+        <li>Children under 12 get in free!</li>
+        <li>Children age 12-16 get in for $10!</li>
+        <li>Anyone 17 or older gets in for $13!</li>
+      </ul>
+    </div>
+
+    <div>
+      <form name="priceForm" action="javascript:checkAge()">
+        <label for="age">Enter your age:</label>
+        <input type="text" id="age" />
+        <input type="submit" />
+      </form>
+    </div>
+
+    <div id="price"></div>
+
+    <footer>
+      <br />
+      <hr />
+      <p>Copyright 2022 &copy; Vincent Tran</p>
+    </footer>
+  </body>
 </html>
