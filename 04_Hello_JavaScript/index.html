@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Introduction to JavaScript</title>
+        <meta charset="utf-8">
+        <!-- The <script> tag is the only tag that can go in both the head and body tag -->
+        <!-- prompt displays a dialog box for input -->
+        <!-- alert displays a dialog box for output -->
+        <!-- document.getElementById(idhere).innerHTML replaces/adds content to the page-->
+        <script>
+            function sayHello() {
+                let name = prompt("What is your name?");
+                // alert("Hello, " + name + "!");
+                document.getElementById("greeting").innerHTML = "Hello, <b>" + name + "</b>!";
+            }
+            function updateName() {
+                let name = document.hello.firstname.value; // retrieves the value inputted in the textbox with the id firstname
+                document.getElementById("greeting").innerHTML = "Hello, <b>" + name + "</b>!";
+            }
+        </script>
+    </head>
+    <!-- onload denotes that it runs a function called letsgo(), which executes when the body loads -->
+    <body onload="sayHello()">
+
+        <form name="hello" action="javascript:updateName()">
+            <label for="firstname">First name:</label>
+            <input type="text" name="firstname" id="firstname">
+            <input type="submit">
+        </form>
+
+        Here's the greeting div --&gt;
+        <div id="greeting">
+
+        </div>
+    </body>
+</html>
