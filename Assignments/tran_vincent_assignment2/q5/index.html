@@ -5,18 +5,62 @@
 <!-- CSCI 3300-04 -->
 <!-- 2/1/2022 -->
 
-<html lang="en">
-    <head>
-        <title>Name of Application</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <header>
-            <h1>Name of Application</h1>
-        </header>
+<!-- 1 to 10 -->
 
-        <footer>
-            <p>Copyright 2022 &copy; Vincent Tran</p>
-        </footer>
-    </body>
+<html lang="en">
+  <head>
+    <title>Vincent Tran's Range Check App</title>
+    <meta charset="utf-8" />
+    <script>
+      function checkRange() {
+        let number = parseFloat(document.rangeForm.someNumber.value);
+        if (number < 1) {
+          document.getElementById("result").innerHTML =
+            number + " is lower than the minimum value of the range.";
+        } else if (number > 10) {
+          document.getElementById("result").innerHTML =
+            number + " is greater than the maximum value of the range.";
+        } else if (number >= 1 && number <= 10) {
+          document.getElementById("result").innerHTML =
+            number + " is in the range of the minimum and the maximum.";
+        }
+      }
+    </script>
+    <style>
+      body {
+        text-align: center;
+      }
+      p {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Vincent Tran's Range Check App</h1>
+      <p>
+        Please enter a number below to determine if your number lies between the
+        range. Failure to enter a number within the range will result in
+        punishment.
+      </p>
+      <hr />
+      <br />
+    </header>
+
+    <div>
+      <form name="rangeForm" action="javascript:checkRange()">
+        <label for="someNumber">Enter a number:</label>
+        <input type="text" id="someNumber" />
+        <input type="submit" />
+      </form>
+    </div>
+
+    <div id="result"></div>
+
+    <footer>
+      <br />
+      <hr />
+      <p>Copyright 2022 &copy; Vincent Tran</p>
+    </footer>
+  </body>
 </html>
