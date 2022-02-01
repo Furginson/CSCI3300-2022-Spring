@@ -7,15 +7,50 @@
 
 <html lang="en">
     <head>
-        <title>Name of Application</title>
+        <title>Vincent Tran's Shouting App</title>
         <meta charset="utf-8">
+        <style>
+            header {
+                text-align: center;
+            }
+            body {
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
         <header>
-            <h1>Name of Application</h1>
+            <h1>Vincent Tran's Shouting App</h1>
+            <p>Please enter your bad argument below. A new argument will be generated for you that will ensure you will win all future arguments.</p>
+            <hr>
+            <br>
+            <script>
+                function makeArgumentGood() {
+                    let badArgument = document.shoutForm.badargument.value;
+                    document.getElementById("allcaps").innerHTML = "Generating...[1/2] <br> Generating...[2/2] <br> Generated: " + badArgument.toUpperCase();
+                }
+            </script>
         </header>
 
+        <form name="shoutForm" action="javascript:makeArgumentGood()">
+            <div>
+                <label for="badargument">Enter your bad argument:</label>
+                <br>
+                <input type="text" id="badargument">
+            </div>
+            <br>
+            <input type="submit">
+        </form>
+
+        <br>
+
+        <div id="allcaps">
+
+        </div>
+
         <footer>
+            <br>
+            <hr>
             <p>Copyright 2022 &copy; Vincent Tran</p>
         </footer>
     </body>
