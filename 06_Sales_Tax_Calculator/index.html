@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sales Tax Calculator</title>
+        <meta charset="utf-8">
+        <script>
+            function computeTaxes() {
+                const SALES_TAX_RATE = 0.095;
+                let enteredPrice = parseFloat(document.taxes.itemprice.value);
+                let salesTax = SALES_TAX_RATE * enteredPrice;
+                let total = salesTax + enteredPrice;
+
+                document.getElementById("originalprice").innerHTML = "$" + enteredPrice;
+                document.getElementById("salestax").innerHTML = "$" + salesTax;
+                document.getElementById("totalprice").innerHTML = "$" + total;
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Sales Tax Calculator</h1>
+        <hr>
+        <p>This program computers the sales tax (randomly generated) of an item sold.</p>
+        <hr>
+
+        <form name="taxes" action="javascript:computeTaxes()">
+            <label for="itemprice">Enter the price of an item:</label>
+            <input type="text" name="itemprice" id="itemprice">
+            <input type="submit" value="Calculate Taxes">
+        </form>
+
+        <hr>
+
+        <!--The difference between a div and span is that a div is a box,
+             while span is for text. You can still write to a span like a box -->
+        <div>
+            Original Price: <span id="originalprice"></span>
+        </div>
+        <div>
+            Sales Tax: <span id="salestax"></span>
+        </div>
+        <div>
+            Total Price: <span id="totalprice"></span>
+        </div>
+
+    </body>
+</html>
