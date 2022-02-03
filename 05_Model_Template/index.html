@@ -6,8 +6,10 @@
         <meta charset="utf-8">
         <script>
             function echoText() {
-                let echovalue = document.myform.echo.value;
-                document.getElementById(results).innerHTML = echovalue;
+                // Syntax for below: document.formName.nameOfTextField.value;
+                // let echovalue = document.myform.echo.value; (same as below)
+                let echovalue = document.getElementById("echofield").value;
+                document.getElementById("results").innerHTML = echovalue;
             }
         </script>
     </head>
