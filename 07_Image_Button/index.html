@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Taco Button!</title>
+        <meta charset="utf-8">
+        <script>
+            function getTaco() {
+                let tacoImage = "<img src=\"images/taco.jpg\" alt=\"3 delicious tacos\">";
+                document.getElementById("displayTaco").innerHTML = tacoImage;
+                // alternative: document.getElementById("displayTaco").innerHTML = '<img src="images/taco.jpg" alt="3 delicious tacos">;'
+                
+            }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            <h1>Taco Button!</h1>
+            <hr>
+        </header>
+
+        <form name="myForm" action="javascript:getTaco()">
+            <input type="submit" value="Get the taco!">
+        </form>
+
+        <hr>
+        <div id="displayTaco">
+
+        </div>
+    </body>
+</html>
