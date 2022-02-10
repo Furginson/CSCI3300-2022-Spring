@@ -6,72 +6,71 @@
 <!-- 2/1/2022 -->
 
 <html lang="en">
-    <head>
-        <title>Vincent Tran's Book App</title>
-        <meta charset="utf-8">
-        <script>
-            function submitBook() {
-                let name = document.bookForm.bookTitle.value;
-                let author = document.bookForm.bookAuthor.value;
-                let subject = document.bookForm.bookSubject.value;
+  <head>
+    <title>Vincent Tran's Book App</title>
+    <meta charset="utf-8" />
+    <script>
+      function submitBook() {
+        let name = document.bookForm.bookTitle.value;
+        let author = document.bookForm.bookAuthor.value;
+        let subject = document.bookForm.bookSubject.value;
 
-                document.getElementById("title").innerHTML = name;
-                document.getElementById("author").innerHTML = author;
-                document.getElementById("subject").innerHTML = subject;
-            }
-        </script>
-        <style>
-            header {
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1>Vincent Tran's Book App</h1>
-            <p>Please enter the book information of your book below. Unauthorized use of application will result in disintegration.</p>
-            <hr>
-            <br>
-        </header>
+        document.getElementById("title").innerHTML = name;
+        document.getElementById("author").innerHTML = author;
+        document.getElementById("subject").innerHTML = subject;
+      }
+    </script>
+    <style>
+      header {
+        text-align: center;
+      }
+      body {
+        background-color: cornflowerblue;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Vincent Tran's Book App</h1>
+      <p>
+        Please enter the book information of your book below. Unauthorized use
+        of application will result in disintegration.
+      </p>
+      <hr />
+      <br />
+    </header>
 
-        
+    <form name="bookForm" action="javaScript:submitBook()">
+      <div>
+        <p>
+          <label for="bookTitle">Book Title:</label>
+          <input type="text" id="bookTitle" />
+        </p>
+        <p>
+          <label for="bookAuthor">Book Author:</label>
+          <input type="text" id="bookAuthor" />
+        </p>
+        <p>
+          <label for="bookSubject">Book Subject:</label>
+          <input type="text" id="bookSubject" />
+        </p>
+      </div>
+      <div>
+        <input type="submit" />
+      </div>
+    </form>
 
-        <form name="bookForm" action="javaScript:submitBook()">
-            <div>
-                <p>
-                    <label for="bookTitle">Book Title:</label>
-                    <input type="text" id="bookTitle">
-                </p>
-                <p>
-                    <label for="bookAuthor">Book Author:</label>
-                    <input type="text" id="bookAuthor">
-                </p>
-                <p>
-                    <label for="bookSubject">Book Subject:</label>
-                    <input type="text" id="bookSubject">
-                </p>
-            </div>
-            <div>
-                <input type="submit">
-            </div>
-        </form>
+    <div id="title"></div>
 
-        <div id="title">
-            
-        </div>
+    <div id="author"></div>
 
-        <div id="author">
-            
-        </div>
+    <div id="subject"></div>
 
-        <div id="subject">
-            
-        </div>
-
-        <footer>
-            <br>
-            <hr>
-            <p>Copyright 2022 &copy; Vincent Tran</p>
-        </footer>
-    </body>
+    <footer>
+      <br />
+      <hr />
+      <p>Copyright 2022 &copy; Vincent Tran</p>
+    </footer>
+  </body>
 </html>
