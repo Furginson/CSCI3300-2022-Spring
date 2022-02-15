@@ -7,11 +7,12 @@
 
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>Vincent Tran's Even, Odd, Float, or None of Above</title>
         <meta charset="utf-8">
         <style>
             body {
                 background-color: cornflowerblue;
+                text-align: center;
             }            
             header {
                 text-align: center;
@@ -21,17 +22,46 @@
             }
         </style>
         <script>
-
+            function determineType() {
+                let num = document.myForm.inputValue.value;
+                num = parseFloat(num);
+                
+                if (num % 2 == 0) {
+                    document.getElementById("result").innerHTML = num + " is even.";
+                } else if (num % 2 != 0) {
+                    if (num - Math.floor(num) != 0) {
+                        document.getElementById("result").innerHTML = num + " is a float.";
+                    } else {
+                        document.getElementById("result").innerHTML = num + " is odd.";
+                    }
+                } else {
+                    document.getElementById("result").innerHTML = "NaN";
+                }
+            }
         </script>
     </head>
     <body>
         <header>
-            <h1>Title</h1>
+            <h1>Vincent Tran's Even, Odd, Float, or None of Above</h1>
             <hr>
             <br>
         </header>
 
         <main>
+
+            <form name="myForm" action="javascript:determineType()">
+                <div>
+                    <label for="inputValue">Enter anything:</label>
+                    <input type="text" id="inputValue">
+                </div>
+                <div>
+                    <input type="submit" value="Determine the type of number">
+                </div>
+            </form>
+
+            <div id="result">
+
+            </div>
 
         </main>
 
