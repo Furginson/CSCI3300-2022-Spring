@@ -6,69 +6,66 @@
 <!-- 2/15/2022 -->
 
 <html lang="en">
-    <head>
-        <title>Vincent Tran's Even, Odd, Float, or None of Above</title>
-        <meta charset="utf-8">
-        <style>
-            body {
-                background-color: cornflowerblue;
-                text-align: center;
-            }            
-            header {
-                text-align: center;
-            }
-            footer {
-                text-align: center;
-            }
-        </style>
-        <script>
-            function determineType() {
-                let num = document.myForm.inputValue.value;
-                num = parseFloat(num);
-                
-                if (isNaN(num)) {
-                    document.getElementById("result").innerHTML = "None of the Above.";
-                } else if (num % 2 == 0) {
-                    document.getElementById("result").innerHTML = num + " is even.";
-                } else if (num % 2 != 0) {
-                    if (num - Math.floor(num) != 0) {
-                        document.getElementById("result").innerHTML = num + " is a float.";
-                    } else {
-                        document.getElementById("result").innerHTML = num + " is odd.";
-                    }
-                }
-            }
-        </script>
-    </head>
-    <body>
-        <header>
-            <h1>Vincent Tran's Even, Odd, Float, or None of Above</h1>
-            <hr>
-            <br>
-        </header>
+  <head>
+    <title>Vincent Tran's Even, Odd, Float, or None of Above</title>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        background-color: cornflowerblue;
+        text-align: center;
+      }
+      header {
+        text-align: center;
+      }
+      footer {
+        text-align: center;
+      }
+    </style>
+    <script>
+      function determineType() {
+        let num = document.myForm.inputValue.value;
+        num = parseFloat(num);
 
-        <main>
+        if (isNaN(num)) {
+          document.getElementById("result").innerHTML = "None of the Above.";
+        } else if (num % 2 == 0) {
+          document.getElementById("result").innerHTML = num + " is even.";
+        } else if (num % 2 != 0) {
+          if (num - Math.floor(num) != 0) {
+            //  ex: input 5.1 -> 5.1-5 = .1, so anything not 0 is a float
+            document.getElementById("result").innerHTML = num + " is a float.";
+          } else {
+            document.getElementById("result").innerHTML = num + " is odd.";
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Vincent Tran's Even, Odd, Float, or None of Above</h1>
+      <hr />
+      <br />
+    </header>
 
-            <form name="myForm" action="javascript:determineType()">
-                <div>
-                    <label for="inputValue">Enter anything:</label>
-                    <input type="text" id="inputValue">
-                </div>
-                <div>
-                    <input type="submit" value="Determine the type of number">
-                </div>
-            </form>
+    <main>
+      <form name="myForm" action="javascript:determineType()">
+        <div>
+          <label for="inputValue">Enter anything:</label>
+          <input type="text" id="inputValue" />
+        </div>
+        <div>
+          <input type="submit" value="Determine the type of number" />
+        </div>
+      </form>
 
-            <div id="result">
+      <div id="result"></div>
+    </main>
 
-            </div>
-
-        </main>
-
-        <footer>
-            <br>
-            <hr>
-            Copyright &copy; Vincent Tran 2022
-        </footer>
-    </body>
+    <footer>
+      <br />
+      <hr />
+      Copyright &copy; Vincent Tran 2022
+    </footer>
+  </body>
 </html>
