@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<!-- Vincent Tran -->
+<!-- Assignment 3 -->
+<!-- CSCI-3300-04 -->
+<!-- 2/15/2022 -->
+
+<html lang="en">
+  <head>
+    <title>Vincent Tran's Middle of Three Numbers</title>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        background-color: cornflowerblue;
+        text-align: center;
+      }
+      header {
+        text-align: center;
+      }
+      footer {
+        text-align: center;
+      }
+    </style>
+    <script>
+      function calculateMiddle() {
+        let num1 = parseFloat(document.myForm.firstNum.value);
+        let num2 = parseFloat(document.myForm.secondNum.value);
+        let num3 = parseFloat(document.myForm.thirdNum.value);
+
+        let largestNumber = num1;
+        let smallestNumber = num1;
+        let middleNum = num1;
+        let middleWord = "first";
+
+        if (largestNumber < num2) {
+          largestNumber = num2;
+        }
+        if (largestNumber < num3) {
+          largestNumber = num3;
+        }
+        if (smallestNumber > num2) {
+          smallestNumber = num2;
+        }
+        if (smallestNumber > num3) {
+          smallestNumber = num3;
+        }
+
+        if (num1 > smallestNumber && num1 < largestNumber) {
+          middleNum = num1;
+        }
+        if (num2 > smallestNumber && num2 < largestNumber) {
+          middleNum = num2;
+          middleWord = "second";
+        }
+        if (num3 > smallestNumber && num3 < largestNumber) {
+          middleNum = num3;
+          middleWord = "third";
+        }
+
+        document.getElementById("result").innerHTML =
+          "The " +
+          middleWord +
+          " number (" +
+          middleNum +
+          ") is the middle value.";
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Vincent Tran's Middle of Three Numbers</h1>
+      <hr />
+      <br />
+    </header>
+
+    <main></main>
+    <form name="myForm" action="javascript:calculateMiddle()">
+      <div>
+        <label for="firstNum">Enter the first number:</label>
+        <input type="text" id="firstNum" />
+      </div>
+      <div>
+        <label for="secondNum">Enter the second number:</label>
+        <input type="text" id="secondNum" />
+      </div>
+      <div>
+        <label for="thirdNum">Enter the third number:</label>
+        <input type="text" id="thirdNum" />
+      </div>
+      <input type="submit" value="Determine the largest number" />
+    </form>
+
+    <div id="result"></div>
+    <footer>
+      <br />
+      <hr />
+      Copyright &copy; Vincent Tran 2022
+    </footer>
+  </body>
+</html>
