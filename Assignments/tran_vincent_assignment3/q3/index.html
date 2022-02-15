@@ -26,7 +26,9 @@
                 let num = document.myForm.inputValue.value;
                 num = parseFloat(num);
                 
-                if (num % 2 == 0) {
+                if (isNaN(num)) {
+                    document.getElementById("result").innerHTML = "None of the Above.";
+                } else if (num % 2 == 0) {
                     document.getElementById("result").innerHTML = num + " is even.";
                 } else if (num % 2 != 0) {
                     if (num - Math.floor(num) != 0) {
@@ -34,8 +36,6 @@
                     } else {
                         document.getElementById("result").innerHTML = num + " is odd.";
                     }
-                } else {
-                    document.getElementById("result").innerHTML = "NaN";
                 }
             }
         </script>
