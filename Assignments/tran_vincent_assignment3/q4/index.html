@@ -6,60 +6,58 @@
 <!-- 2/15/2022 -->
 
 <html lang="en">
-    <head>
-        <title>Vincent Tran's Nearest Integer</title>
-        <meta charset="utf-8">
-        <style>
-            body {
-                background-color: cornflowerblue;
-                text-align: center;
-            }            
-            header {
-                text-align: center;
-            }
-            footer {
-                text-align: center;
-            }
-        </style>
-        <script>
-            function roundNumber() {
-                let num1 = parseFloat(document.myForm.inputNum.value);
+  <head>
+    <title>Vincent Tran's Nearest Integer</title>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        background-color: cornflowerblue;
+        text-align: center;
+      }
+      header {
+        text-align: center;
+      }
+      footer {
+        text-align: center;
+      }
+    </style>
+    <script>
+      function roundNumber() {
+        let num1 = parseFloat(document.myForm.inputNum.value);
 
-                if (num1 - Math.floor(num1) >= 0.5) {
-                    document.getElementById("result").innerHTML = "The nearest integer is " + (parseInt(num1) + 1);
-                } else {
-                    document.getElementById("result").innerHTML = "The nearest integer is " + (parseInt(num1));
-                }
-            }
-        </script>
-    </head>
-    <body>
-        <header>
-            <h1>Vincent Tran's Nearest Integer</h1>
-            <hr>
-            <br>
-        </header>
+        if (num1 - Math.floor(num1) >= 0.5) {
+          document.getElementById("result").innerHTML =
+            "The nearest integer is " + (parseInt(num1) + 1);
+        } else {
+          document.getElementById("result").innerHTML =
+            "The nearest integer is " + parseInt(num1);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Vincent Tran's Nearest Integer</h1>
+      <hr />
+      <br />
+    </header>
 
-        <main>
+    <main>
+      <form name="myForm" action="javascript:roundNumber()">
+        <div>
+          <label for="inputNum">Enter the first number:</label>
+          <input type="text" id="inputNum" />
+        </div>
+        <input type="submit" value="Determine the nearest integer" />
+      </form>
 
-            <form name="myForm" action="javascript:roundNumber()">
-                <div>
-                    <label for="inputNum">Enter the first number:</label>
-                    <input type="text" id="inputNum">
-                </div>
-                <input type="submit" value="Determine the nearest integer">
-            </form>
+      <div id="result"></div>
+    </main>
 
-            <div id="result">
-
-            </div>
-
-        </main>
-
-        <footer>
-            <br>
-            <hr>
-            Copyright &copy; Vincent Tran 2022
-        </footer>
-    </body>
+    <footer>
+      <br />
+      <hr />
+      Copyright &copy; Vincent Tran 2022
+    </footer>
+  </body>
 </html>
