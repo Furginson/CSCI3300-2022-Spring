@@ -5,6 +5,7 @@
         <title>JavaScript Loops</title>
         <meta charset="utf-8">
         <script>
+            /* V1
             const HELLO = "hello";
             const QUIT = "quit";
             let option = HELLO;
@@ -15,6 +16,18 @@
                 }
             }
             alert("We are done!");
+            */
+
+            /* V2
+            let number = prompt("Enter a number less than 10.");
+            number = parseFloat(number);
+            while (number >= 10 || isNaN(number)) {
+                alert("Invalid entry.");
+                number = prompt("Enter a number less than 10.");
+                number = parseFloat(number);
+            }
+            */
+
         </script>
     </head>
 
