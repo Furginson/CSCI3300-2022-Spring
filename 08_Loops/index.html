@@ -56,6 +56,7 @@
             }
             */
 
+            /* V5
             let response = prompt("Does pineapple belong on pizza?");
             response = response.toUpperCase();
             while (response != "Y" && response != "N") {
@@ -63,6 +64,23 @@
                 response = prompt("Does pineapple belong on pizza? [Y/n]");
                 response = response.toUpperCase();
             }
+            if (response == 'Y') {
+                alert("Your opinions are bad and you should feel bad. Pineapple does not belong on pizza.");
+            } else {
+                alert("You may pick out the next pizza");
+            }
+            */
+
+            // Do while loop
+            let resposne = "";
+            do {
+                response = prompt("Does pineapple belong on pizza?");
+                response = response.toUpperCase();
+                if (response != "Y" && response != "N") {
+                    alert("Invalid input. Expecting Y or N")
+                }
+            } while (response != 'Y' && response != 'N');
+            
             if (response == 'Y') {
                 alert("Your opinions are bad and you should feel bad. Pineapple does not belong on pizza.");
             } else {
