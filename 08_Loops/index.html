@@ -28,6 +28,31 @@
             }
             */
 
+            let response = prompt("Does pineapple belong on pizza?");
+            if (!isNaN(response)) {
+                alert("Invalid entry");
+            } else {
+                if (response == "Y" || response == "y") {
+                    alert("Sure, bud.");
+                } else if (response == "N" || response == "n") {
+                    alert("I agree.");
+                } else {
+                    alert("Invalid entry");
+                }
+            }
+
+            /*
+            while (response != "Y" && response != "y" && response != "N" && response != "n") {
+                alert("Invalid input. Expecting Y or N.");
+                response = prompt("Does pineapple belong on pizza? [Y/n]");
+            }
+            if (response == 'Y' || response == 'y') {
+                alert("Your opinions are bad and you should feel bad. Pineapple does not belong on pizza.");
+            } else {
+                alert("You may pick out the next pizza");
+            }
+            */
+
         </script>
     </head>
 
