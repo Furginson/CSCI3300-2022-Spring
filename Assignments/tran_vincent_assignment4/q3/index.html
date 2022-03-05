@@ -29,13 +29,21 @@
                 let catCounter = 0;
                 let message = " ";
                 let stopPoint = message.length - 2;
+                let upperCaseMessage = "";
                 while (message != "done") {
                     message = prompt("Type Away:");
-                    for (let i = 0; i < message.length; i++) {
-                        if (message[i] == "D") {
-                            dogCounter += 1;
+                    if (message != "done") {
+                        for (let i = 0; i < message.length; i++) {
+                        if (message[i] == "D" || message[i] == "d") {
+                            if (message[i + 1] == "O" || message[i + 1] == "o") {
+                                if (message[i + 2] == "G" || message[i + 2] == "g") {
+                                    dogCounter += 1;
+                                }
+                            }
                         }
                     }
+                    }
+                    
                 }
                 alert("dog counter: " + dogCounter);
                 alert("cat counter: " + catCounter);
