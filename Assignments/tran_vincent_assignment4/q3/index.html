@@ -34,14 +34,21 @@
                     message = prompt("Type Away:");
                     if (message != "done") {
                         for (let i = 0; i < message.length; i++) {
-                        if (message[i] == "D" || message[i] == "d") {
-                            if (message[i + 1] == "O" || message[i + 1] == "o") {
-                                if (message[i + 2] == "G" || message[i + 2] == "g") {
-                                    dogCounter += 1;
+                            if (message[i] == "D" || message[i] == "d") {
+                                if (message[i + 1] == "O" || message[i + 1] == "o") {
+                                    if (message[i + 2] == "G" || message[i + 2] == "g") {
+                                        dogCounter += 1;
+                                    }
+                                }
+                            }
+                            if (message[i] == "C" || message[i] == "c") {
+                                if (message[i + 1] == "A" || message[i + 1] == "a") {
+                                    if (message[i + 2] == "T" || message[i + 2] == "t") {
+                                        catCounter += 1;
+                                    }
                                 }
                             }
                         }
-                    }
                     }
                     
                 }
