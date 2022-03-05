@@ -7,7 +7,7 @@
 
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>Vincent Tran's Dog and Cat Counter</title>
         <meta charset="utf-8">
         <style>
             body {
@@ -19,22 +19,45 @@
             footer {
                 text-align: center;
             }
+            main {
+                text-align: center;
+            }
         </style>
         <script>
+            function petCounter() {
+                let dogCounter = 0;
+                let catCounter = 0;
+                let message = " ";
+                let stopPoint = message.length - 2;
+                while (message != "done") {
+                    message = prompt("Type Away:");
+                    for (let i = 0; i < message.length; i++) {
+                        if (message[i] == "D") {
+                            dogCounter += 1;
+                        }
+                    }
+                }
+                alert("dog counter: " + dogCounter);
+                alert("cat counter: " + catCounter);
 
+            }
         </script>
     </head>
     <body>
         <header>
-            <h1>Title</h1>
+            <h1>Vincent Tran's Dog and Cat Counter</h1>
             <hr>
             <br>
         </header>
         <main>
-
+            <form name="myform" action="javascript:petCounter()">
+                <input type="submit" value="Click me to Count!">
+            </form>
         </main>
 
         <footer>
+            <br>
+            <hr>
             Vincent Tran &copy; 2022
         </footer>
     </body>
