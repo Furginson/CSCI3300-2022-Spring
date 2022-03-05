@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>For Loop Shapes</title>
+        <meta charset="utf-8">
+        <script>
+            function letsgo() {
+                let number = parseInt(document.myform.number.value);
+
+                const SYMBOL = "#";
+
+                let message = "";
+                
+                /* Error validation
+                if (number < 0) {
+                    message = "Error: number must be a positive number";
+                } else {
+                    for (let i = 0; i < number; i++) {
+                        message += SYMBOL;
+                    }
+                }
+                */
+
+                /* Creates a triangle
+                for (let j = 1; j <= number; j++) {
+                    for (let i = 0; i < j; i++) {
+                        message += SYMBOL;
+                    }
+                    message += "\n";
+                }
+                */
+
+                /* Creates a square
+                for (let j = 1; j <= number; j++) {
+                    for (let i = 0; i < number; i++) {
+                        message += SYMBOL;
+                    }
+                    message += "\n";
+                }
+                */
+
+                /*
+                    Creates an upside down triangle
+                */
+                for (let j = 1; j <= number; j++) {
+                    for (let i = number; i >= j; i--) {
+                        message += SYMBOL;
+                    }
+                    message += "\n";
+                }
+
+                document.getElementById("results").innerHTML = message;
+
+            }
+        </script>
+    </head>
+    
+    <body>
+        <header>
+            <h1>For Loop Shapes</h1>
+            <hr>
+
+            <form name="myform" action="javascript:letsgo()">
+                <label for="number">Enter a positive number:</label>
+                <input type="number" name="number" id="number">
+
+                <div>
+                    <input type="submit">
+                </div>
+
+                <hr>
+
+                <pre id="results">Results will go here</pre>
+                <!-- Pre tag makes text blocky -->
+            </form>
+        </header>
+    </body>
+</html>
