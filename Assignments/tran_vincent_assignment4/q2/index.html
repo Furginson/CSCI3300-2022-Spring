@@ -6,36 +6,84 @@
 <!-- 3/5/2022 -->
 
 <html lang="en">
-    <head>
-        <title>Title</title>
-        <meta charset="utf-8">
-        <style>
-            body {
-                background-color: cornflowerblue;
-            }
-            header {
-                text-align: center;
-            }
-            footer {
-                text-align: center;
-            }
-        </style>
-        <script>
+  <head>
+    <title>Vincent Tran's Grocery Shopping List</title>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        background-color: cornflowerblue;
+      }
+      header {
+        text-align: center;
+      }
+      footer {
+        text-align: center;
+      }
+      main {
+        text-align: center;
+      }
+      .centerMe {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+    <script>
+      function createList() {
+        let itemName = " ";
+        let itemPrice = 0;
+        let itemTotal = 0;
+        let myTable = "<table class='centerMe'>";
+        myTable += "<tr><th>Item Name</th><th>Item Price</th></tr>";
 
-        </script>
-    </head>
-    <body>
-        <header>
-            <h1>Title</h1>
-            <hr>
-            <br>
-        </header>
-        <main>
+        while (itemName != "done") {
+          if (itemName != "done") {
+            itemName = prompt("Enter the item name.");
+            if (itemName != "done") {
+              itemPrice = prompt("Enter the item price.");
+              itemPrice = parseFloat(itemPrice);
+              myTable +=
+                "<tr><td>" +
+                itemName +
+                "</td><td>" +
+                " $" +
+                itemPrice.toFixed(2) +
+                "</td></tr>";
+              itemTotal += itemPrice;
+            }
+          } else {
+          }
+        }
+        myTable += "</table>";
+        document.getElementById("results").innerHTML = myTable;
+        document.getElementById("total").innerHTML =
+          "Total: $" + itemTotal.toFixed(2);
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Vincent Tran's Grocery Shopping List</h1>
+      <hr />
+      <br />
+    </header>
+    <main>
+      <form name="myform" action="javascript:createList()">
+        <input type="submit" value="Create List" />
+      </form>
 
-        </main>
+      <br />
 
-        <footer>
-            Vincent Tran &copy; 2022
-        </footer>
-    </body>
+      <div id="results"></div>
+
+      <br />
+
+      <div id="total"></div>
+    </main>
+
+    <footer>
+      <br />
+      <hr />
+      Vincent Tran &copy; 2022
+    </footer>
+  </body>
 </html>
