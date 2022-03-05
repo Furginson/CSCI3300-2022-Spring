@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!-- Vincent Tran -->
+<!-- CSCI 3300-04 -->
+<!-- Assignment 4 -->
+<!-- 3/5/2022 -->
+
+<html lang="en">
+  <head>
+    <title>Vincent Tran's Secret Message Program</title>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        background-color: cornflowerblue;
+      }
+      header {
+        text-align: center;
+      }
+      footer {
+        text-align: center;
+      }
+      main {
+        text-align: center;
+      }
+    </style>
+    <script>
+      function secretMessage() {
+        let message = prompt("Enter the secret word!");
+        var hawaiiPicture =
+          '<img src="hawaii.jpg" alt="test" width=500 height=500>';
+
+        while (message != "hawaii") {
+          message = prompt("Enter the secret word!");
+        }
+
+        document.getElementById("results").innerHTML = "I love Hawaii!";
+        document.getElementById("pictureArea").innerHTML = hawaiiPicture;
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Vincent Tran's Secret Message Program</h1>
+      <hr />
+      <br />
+    </header>
+    <main>
+      <form name="myform" action="javascript:secretMessage()">
+        <input type="submit" value="Click here to view secret message!" />
+      </form>
+
+      <br />
+
+      <div id="results"></div>
+
+      <br />
+
+      <div id="pictureArea"></div>
+    </main>
+
+    <footer>
+      <br />
+      <hr />
+      Vincent Tran &copy; 2022
+    </footer>
+  </body>
+</html>
