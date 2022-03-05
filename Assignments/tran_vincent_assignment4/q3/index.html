@@ -52,9 +52,8 @@
                     }
                     
                 }
-                alert("dog counter: " + dogCounter);
-                alert("cat counter: " + catCounter);
-
+                document.getElementById("dogresult").innerHTML = "You typed dog " + dogCounter + " time(s).";
+                document.getElementById("catresult").innerHTML = "You typed cat " + catCounter + " time(s).";
             }
         </script>
     </head>
@@ -68,6 +67,12 @@
             <form name="myform" action="javascript:petCounter()">
                 <input type="submit" value="Click me to Count!">
             </form>
+            <div id="dogresult">
+
+            </div>
+            <div id="catresult">
+
+            </div>
         </main>
 
         <footer>
