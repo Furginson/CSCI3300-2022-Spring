@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<!-- Vincent Tran -->
+<!-- CSCI 3300-04 -->
+<!-- 3/23/2022 -->
+
+<html lang="en">
+    <head>
+        <title>Vincent Tran's Number Examination Tool</title>
+        <meta charset="utf-8">
+        <style>
+            main, footer, header {
+                text-align: center;
+            }
+            body {
+                background-color: cornflowerblue;
+            }
+        </style>
+        <script>
+            function reviewNumbers() {
+                const SENTINEL = -1;
+                let input = 0;
+                let sum = 0;
+                let floatingSum = 0;
+                let floatingCount = 0;
+                let message = "";
+                let total = "";
+                let count = 0;
+
+                while (input != SENTINEL) {
+                    input = prompt("Enter a number:");
+                    input = parseFloat(input);
+
+                    if (isNaN(input)) {
+
+                    } else if (input == -1) {
+                    
+                    } else {
+                        count++;
+                        sum += input;
+                        if (input % 2 == 0) {
+                            message += input + " is an even value <br>";
+                        } else if (input % 2 != 0) {
+                            if (input - Math.floor(input) != 0) {
+                                floatingCount++;
+                                floatingSum += input;
+                                message += input.toFixed(2) + " is a floating-point value <br>";
+                            } else {
+                                message += input + " is an odd value <br>";
+                            }
+                        }
+                    }
+                }
+
+                if (sum == 0 && count == 0) {
+                    total = "No values were entered";
+                } else {
+                    if (floatingCount != 0) {
+                        let average = sum / count; 
+                        let floatingAverage = floatingSum / floatingCount;
+                        total = "<br>Final Message after all numbers have been entered: " + 
+                        "The total is " + sum.toFixed(2) + " and the average is " + average.toFixed(2) + ". The sum of just the floating point values is " + floatingSum.toFixed(2) + " with an average of " + floatingAverage.toFixed(2) + ".";
+                    } else {
+                        let average = sum / count;
+                        total = "<br>Final Message after all numbers have been entered: The total is " + sum.toFixed(2) + " and the average is " + average.toFixed(2) + ". No floating-point values were entered.";
+                    }
+                    
+                }
+
+                document.getElementById("results").innerHTML = message;
+                document.getElementById("total").innerHTML = total;
+
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Vincent Tran's Number Examination Tool</h1>
+            <hr>
+            <br>
+        </header>
+
+        <main>
+            <form name="myform" action="javascript:reviewNumbers()">
+                <input type="submit" value="Click me to Start!">
+            </form>
+
+            <br>
+
+            <div id="results">
+
+            </div>
+            <div id="total">
+
+            </div>
+        </main>
+
+        <footer>
+            <br>
+            <hr>
+            <p>Vincent Tran &copy; 2022</p>
+        </footer>
+    </body>
+</html>
