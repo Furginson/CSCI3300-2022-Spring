@@ -5,21 +5,83 @@
 <!-- 3/23/2022 -->
 
 <html lang="en">
-    <head>
-        <title>TitleHere</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <header>
-            <h1></h1>
-            <hr>
-            <br>
-        </header>
+  <head>
+    <title>Vincent Tran's Two Trains Tool</title>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        text-align: center;
+        background-color: cornflowerblue;
+      }
+    </style>
+    <script>
+      function trainAnalysis() {
+        let milesPerMinuteA =
+          parseFloat(document.myform.trainAspeed.value) / 60;
+        let milesPerMinuteB =
+          parseFloat(document.myform.trainBspeed.value) / 60;
+        let inputDistance = parseFloat(document.myform.thedistance.value);
 
-        <footer>
-            <br>
-            <hr>
-            <p>Vincent Tran &copy; 2022</p>
-        </footer>
-    </body>
+        let trainADistance = 0;
+        let trainBDistance = inputDistance;
+        let minute = 1;
+        let message = "";
+
+        do {
+          trainADistance += milesPerMinuteA;
+          trainBDistance -= milesPerMinuteB;
+          message +=
+            "Minute " +
+            minute +
+            " Train A Position: " +
+            trainADistance.toFixed(2) +
+            " miles Train B Position: " +
+            trainBDistance.toFixed(2) +
+            " miles<br><br>";
+
+          minute++;
+        } while (trainADistance < trainBDistance);
+
+        document.getElementById("results").innerHTML = message;
+      }
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Vincent Tran's Two Trains Tool</h1>
+      <hr />
+      <br />
+    </header>
+
+    <main>
+      <form name="myform" action="javascript:trainAnalysis()">
+        <div>
+          <label for="trainAspeed">Train A's speed (mph):</label>
+          <input type="text" id="trainAspeed" />
+        </div>
+        <div>
+          <label for="trainBspeed">Train B's speed (mph):</label>
+          <input type="text" id="trainBspeed" />
+        </div>
+        <div>
+          <label for="thedistance"
+            >Distance between Eastford and Westford (miles):</label
+          >
+          <input type="text" id="thedistance" />
+        </div>
+        <input type="submit" />
+      </form>
+    </main>
+
+    <br />
+
+    <div id="results"></div>
+
+    <footer>
+      <br />
+      <hr />
+      <p>Vincent Tran &copy; 2022</p>
+    </footer>
+  </body>
 </html>

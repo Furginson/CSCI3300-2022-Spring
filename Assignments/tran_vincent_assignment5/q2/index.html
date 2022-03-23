@@ -5,69 +5,67 @@
 <!-- 3/23/2022 -->
 
 <html lang="en">
-    <head>
-        <title>Vincent Tran's Letter Matrix</title>
-        <meta charset="utf-8">
-        <style>
-            body {
-                background-color: cornflowerblue;
-                text-align: center;
-            }
-            header, footer {
-                text-align: center;
-            }
-        </style>
+  <head>
+    <title>Vincent Tran's Letter Matrix</title>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        background-color: cornflowerblue;
+        text-align: center;
+      }
+      header,
+      footer {
+        text-align: center;
+      }
+    </style>
 
-        <script>
-            function matrixTime() {
-                let rows = document.myform.row.value;
-                let columns = document.myform.column.value;
-                let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                let k = 0;
-                let message = "";
+    <script>
+      function matrixTime() {
+        let rows = document.myform.row.value;
+        let columns = document.myform.column.value;
+        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let k = 0;
+        let message = "";
 
-                for (let i = 0; i < rows; i++) {
-                    for (let j = 0; j < columns; j++) {
-                        message += letters.charAt(k % 26) + "  ";
-                        k++;
-                    }
-                    message += "<br>";
-                }
+        for (let i = 0; i < rows; i++) {
+          for (let j = 0; j < columns; j++) {
+            message += letters.charAt(k % 26) + "  ";
+            k++;
+          }
+          message += "<br>";
+        }
 
-                document.getElementById("results").innerHTML = message;
+        document.getElementById("results").innerHTML = message;
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Vincent Tran's Letter Matrix</h1>
+      <hr />
+      <br />
+    </header>
 
-            }
-        </script>
-    </head>
-    <body>
-        <header>
-            <h1>Vincent Tran's Letter Matrix</h1>
-            <hr>
-            <br>
-        </header>
+    <main>
+      <form name="myform" action="javascript:matrixTime()">
+        <div>
+          <label for="row">Enter desired amount of rows:</label>
+          <input type="text" id="row" />
+        </div>
+        <div>
+          <label for="column">Enter desired amount of columns:</label>
+          <input type="text" id="column" />
+        </div>
+        <input type="submit" />
+      </form>
+    </main>
 
-        <main>
-            <form name="myform" action="javascript:matrixTime()">
-                <div>
-                    <label for="row">Enter desired amount of rows:</label>
-                    <input type="text" id="row">
-                </div>
-                <div>
-                    <label for="column">Enter desired amount of columns:</label>
-                    <input type="text" id="column">
-                </div>
-                <input type="submit">
-            </form>
-        </main>
+    <pre id="results"></pre>
 
-        <pre id="results">
-
-        </pre>
-
-        <footer>
-            <br>
-            <hr>
-            <p>Vincent Tran &copy; 2022</p>
-        </footer>
-    </body>
+    <footer>
+      <br />
+      <hr />
+      <p>Vincent Tran &copy; 2022</p>
+    </footer>
+  </body>
 </html>
