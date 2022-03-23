@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Advanced Loops</title>
+        <meta charset="utf-8">
+        <script>
+            function letsgo() {
+                const NUMBER_OF_VALUES = 7;
+                let message = "<ul>";
+                let sum = 0;
+
+                // Code!
+
+                for (let i = 0; i < NUMBER_OF_VALUES; i++) {
+                    let number = prompt("Enter a number.");
+                    number = parseFloat(number);
+                    if (isNaN(number)) {
+                        alert("Error: Not a Number.");
+                        i--;
+                    } else {
+                        if (number % 2 == 0) {
+                            message += `<li>${number} is even</li>`;
+                        }
+                        if (number % 2 == 1) {
+                            message += `<li>${number} is odd</li>`;
+                        }
+                        sum += number;
+                    }
+                }
+
+                let average = sum/NUMBER_OF_VALUES;
+
+                message += "</ul>";
+                message += `<p>The sum of all the values is ${sum}</p>`;
+                message += `<p>The average of the values is ${average}</p>`;
+                document.getElementById("results").innerHTML = message;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Advanced Loops</h1>
+        <hr>
+
+        <form name="myform" action="javascript:letsgo()">
+            <input type="submit" value="Begin Program">
+        </form>
+
+        <div id="results">
+            (The output will go here)
+        </div>
+    </body>
+</html>
