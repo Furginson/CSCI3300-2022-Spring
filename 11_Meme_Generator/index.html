@@ -5,7 +5,8 @@
         <meta charset="utf-8">
 
         <script>
-            let memecode = "";
+            let memeimage = "";
+            let memetext = "";
 
             function setImage(images) {
                 let image = "";
@@ -16,8 +17,12 @@
                     }
                 }
 
-                memecode = `<img src="${image}" alt="meme image">`;
-                document.getElementById("mymeme").innerHTML = memecode;
+                memeimage = `<img src="${image}" alt="meme image">`;
+                document.getElementById("mymeme").innerHTML = memeimage;
+            }
+            function setText(text) {
+                memetext = `<span id="memetext">${text.value}</span>`;
+                document.getElementById("mymeme").innerHTML = memeimage + memetext;
             }
         </script>
     </head>
@@ -37,6 +42,10 @@
                <option value="images/monke.jpg">Monke</option>
                <option value="images/skeleton.jpg">Skeleton</option>
            </select>
+
+           <div>
+               Set text: <input type="text" name="memetext" onChange="javascript:setText(this)">
+           </div>
 
            <hr>
 
