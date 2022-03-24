@@ -3,8 +3,44 @@
     <head>
         <title>Meme Generator</title>
         <meta charset="utf-8">
+
+        <script>
+            let memecode = "";
+
+            function setImage(images) {
+                let image = "";
+
+                for (let i = 0; i < images.length; i++) {
+                    if (images[i].selected) {
+                        image = images[i].value;
+                    }
+                }
+
+                memecode = `<img src="${image}" alt="meme image">`;
+                document.getElementById("mymeme").innerHTML = memecode;
+            }
+        </script>
     </head>
     <body>
-        
+       <header>
+           <h1>My Meme Maker!</h1>
+           <hr>
+           <br>
+       </header>
+
+       <main>
+           <!-- Input Elements -->
+           <select name="image" onChange="javascript:setImage(this)">
+               <option value="images/cat.jpg">Cat</option>
+               <option value="images/cow.jpg">Cow</option>
+               <option value="images/tidepod.jpg">Tide Pod</option>
+               <option value="images/monke.jpg">Monke</option>
+               <option value="images/skeleton.jpg">Skeleton</option>
+           </select>
+
+           <hr>
+
+           <div id="mymeme"></div>
+       </main>
     </body>
 </html>
