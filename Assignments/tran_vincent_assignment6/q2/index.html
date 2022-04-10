@@ -6,18 +6,101 @@
 
 <html lang="en">
     <head>
-        <title>A</title>
+        <title>Vincent Tran's Olympic Judging Calculator</title>
         <meta charset="utf-8">
+        <script>
+            function getSmallestValue(anArray) {
+                let min = anArray[0];
+                for (let i = 0; i < anArray.length; i++) {
+                    if (anArray[i] < min) {
+                        min = anArray[i];
+                    }
+                }
+                return min;
+            }
+            function getBiggestValue(anArray) {
+                let biggest = anArray[0];
+                for (let i = 0; i < anArray.length; i++) {
+                    if (anArray[i] > biggest) {
+                        biggest = anArray[i];
+                    }
+                }
+                return biggest;
+            }
+            function getSum(anArray) {
+                let sum = 0;
+                for (let i = 0; i < anArray.length; i++) {
+                    sum += anArray[i];
+                }
+                return sum;
+            }
+            function getUnbiasedAverage() {
+                // biggest and smallest values are removed
+            }
+            function getInput() {
+                let array = [];
+                array.push(parseFloat(document.myform.a.value));
+                array.push(parseFloat(document.myform.b.value));
+                array.push(parseFloat(document.myform.c.value));
+                array.push(parseFloat(document.myform.d.value));
+                array.push(parseFloat(document.myform.e.value));
+                array.push(parseFloat(document.myform.f.value));
+                array.push(parseFloat(document.myform.g.value));
+                array.push(parseFloat(document.myform.h.value));
+
+                alert(getSum(array));
+            }
+        </script>
     </head>
     <body>
         <header>
-            <h1></h1>
+            <h1>Vincent Tran's Olypmic Judging Calculator</h1>
             <hr>
             <br>
         </header>
 
         <main>
-            
+            <form name="myform" action="javascript:getInput()">
+                <div>
+                    <label for="a">County A Judge:</label>
+                    <input type="text" name="a" id="a">
+                </div>
+                <div>
+                    <label for="b">County B Judge:</label>
+                    <input type="text" name="b" id="b">
+                </div>
+                <div>   
+                    <label for="c">County C Judge:</label>
+                    <input type="text" name="c" id="c">
+                </div>
+                <div>
+                    <label for="d">County D Judge:</label>
+                    <input type="text" name="d" id="d">
+                </div>
+                <div>
+                    <label for="e">County E Judge:</label>
+                    <input type="text" name="e" id="e">
+                </div>
+                <div>
+                    <label for="f">County F Judge:</label>
+                    <input type="text" name="f" id="f">
+                </div>
+                <div>
+                    <label for="g">County G Judge:</label>
+                    <input type="text" name="g" id="g">
+                </div>
+                <div>
+                    <label for="h">County H Judge:</label>
+                    <input type="text" name="h" id="h">
+                </div>
+                <input type="submit">
+            </form>
+
+            <br>
+
+            <div id="results">
+
+            </div>
         </main>
 
         <footer>
