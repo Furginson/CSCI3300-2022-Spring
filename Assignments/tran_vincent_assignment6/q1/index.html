@@ -9,16 +9,35 @@
         <title>Vincent Tran's Rectangle Calculator</title>
         <meta charset="utf-8">
         <script>
-            function getArea() {
-                // height * width
+            function getArea(width, height) {
+                return width * height;
             }
-            function getPerimeter() {
-                // 2 * (height + width)
+            function getPerimeter(width, height) {
+                return 2 * (height + width);
             }
-            function getOppositeCornerDistance() {
-                // sqrt( height^2 + width^2 )
+            function getOppositeCornerDistance(width, height) {
+                return Math.sqrt((height ** 2) + (width ** 2));
+            }
+            function getInput() {
+                let height = parseFloat(document.myform.height.value);
+                let width = parseFloat(document.myform.width.value);
+
+                let area = getArea(width, height);
+                let perimeter = getPerimeter(width, height);
+                let cornerDistance = getOppositeCornerDistance(width, height);
+
+                document.getElementById("results").innerHTML = "The area of this rectangle is " + area + " units squared, the perimeter is " + perimeter + " units, and the distance between opposite corners is " + cornerDistance.toFixed(2) + " units."
+
             }
         </script>
+        <style>
+            header, footer, main {
+                text-align: center;
+            }
+            body {
+                background-color: cornflowerblue;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -28,17 +47,23 @@
         </header>
 
         <main>
-            <form name="myform">
+            <form name="myform" action="javascript:getInput()">
                 <div>
                     <label for="height">Enter height:</label>
-                    <input type="text" name="height">
+                    <input type="text" name="height" id="height">
                 </div>
                 <div>
                     <label for="width">Enter width:</label>
-                    <input type="text" name="width">
+                    <input type="text" name="width" id="width">
                 </div>
                 <input type="submit">
             </form>
+
+            <br>
+
+            <div id="results">
+
+            </div>
         </main>
 
         <footer>
