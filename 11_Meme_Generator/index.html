@@ -17,8 +17,7 @@
                     }
                 }
 
-                memeimage = `<img src="${image}" alt="meme image">`;
-                document.getElementById("mymeme").innerHTML = memeimage;
+                document.getElementById("mymeme").style.backgroundImage = `url("${image}")`;
             }
             function setText(text) {
                 memetext = `<span id="memetext">${text.value}</span>`;
