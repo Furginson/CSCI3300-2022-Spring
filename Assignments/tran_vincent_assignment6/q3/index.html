@@ -6,19 +6,94 @@
 
 <html lang="en">
     <head>
-        <title>A</title>
+        <title>Vincent Tran's Point of Sale System</title>
         <meta charset="utf-8">
+        <script>
+            let products = {
+                "umbrella": {"name": "Umbrella", "price": 14.99},
+                "coat": {"name": "Rain Coat", "price": 119.99},
+                "swimsuit": {"name": "Swimsuit", "price": 40.00}
+            };
+
+            let totalPrice = 0;
+            let list = "<ul>";
+
+            function addProduct() {
+                let quantity = parseFloat(document.myform.quantity.value);
+                let allProducts = document.forms.myform.product;
+
+                for (let i = 0; i < allProducts.length; i++) {
+                    if (allProducts[i].selected) {
+                        if (allProducts[i].value == "a") {
+                            totalPrice += (products.umbrella.price * quantity);
+                            list += "<li> Umbrella (Quantity " + quantity + ") Cost: $" + (products.umbrella.price * quantity).toFixed(2) + "</li>";
+                        } else if (allProducts[i].value == "b") {
+                            totalPrice += (products.coat.price * quantity);
+                            list += "<li> Rain Coat (Quantity " + quantity + ") Cost: $" + (products.coat.price * quantity).toFixed(2) + "</li>";
+                        } else if (allProducts[i].value == "c") {
+                            totalPrice += (products.swimsuit.price * quantity);
+                            list += "<li> Swimsuit (Quantity " + quantity + ") Cost: $" + (products.swimsuit.price * quantity).toFixed(2) + "</li>";
+                        }
+                    }
+                }
+                list += "</ul>";
+                document.getElementById("result").innerHTML = list;
+                document.getElementById("finaltotal").innerHTML = "Total Price: $" + totalPrice.toFixed(2);
+
+            }
+        </script>
+        <style>
+            header, footer {
+                text-align: center;
+            }
+            body {
+                background-color: cornflowerblue;
+            }
+            #prices {
+                text-align: center;
+            }
+            #theform, #results, #finaltotal {
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
         <header>
-            <h1></h1>
+            <h1>Vincent Tran's Point of Sale System</h1>
             <hr>
             <br>
         </header>
 
         <main>
-            
+            <div id="prices">
+                <p>Product Code 1. An umbrella costs $14.99</p>
+                <p>Product Code 2. A rain coat costs $119.99</p>
+                <p>Product Code 3. A swimsuit cost $40.00</p>
+                <hr>
+            </div>            
+
+            <div id="theform">
+                <form name="myform" action="javascript:addProduct()">
+                    <div>
+                        Select the product:
+                        <select name="product">
+                                <option value="a">Umbrella</option>
+                                <option value="b">Rain Coat</option>
+                                <option value="c">Swimsuit</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="quantity">Enter the Quantity:</label>
+                        <input type="text" name="quantity" id="quantity">
+                    </div>
+                    <input type="submit">
+                </form>
+            </div>
+
+            <br>
         </main>
+        <div id="result"></div>
+        <div id="finaltotal"></div>
 
         <footer>
             <br>
