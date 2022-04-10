@@ -34,8 +34,26 @@
                 }
                 return sum;
             }
-            function getUnbiasedAverage() {
-                // biggest and smallest values are removed
+            function getUnbiasedAverage(anArray) {
+                let average = 0;
+                let unbiasedSum = 0;
+
+                let max = getBiggestValue(anArray);
+                let min = getSmallestValue(anArray);
+
+                for (let i = 0; i < anArray.length; i++) {
+                    if (anArray[i] == max) {
+                        anArray.splice(i, 1);
+                    }
+                    if (anArray[i] == min) {
+                        anArray.splice(i, 1);
+                    }
+                }
+
+                unbiasedSum = getSum(anArray);
+                average = unbiasedSum / anArray.length;
+
+                return average;
             }
             function getInput() {
                 let array = [];
@@ -48,9 +66,17 @@
                 array.push(parseFloat(document.myform.g.value));
                 array.push(parseFloat(document.myform.h.value));
 
-                alert(getSum(array));
+                document.getElementById("results").innerHTML = "The judges' average score is " + getUnbiasedAverage(array).toFixed(2);
             }
         </script>
+        <style>
+            header, main, footer {
+                text-align: center;
+            }
+            body {
+                background-color: cornflowerblue;
+            }
+        </style>
     </head>
     <body>
         <header>
