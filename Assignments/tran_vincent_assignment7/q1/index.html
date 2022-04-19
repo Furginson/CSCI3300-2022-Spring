@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<!-- Vincent Tran -->
+<!-- CSCI 3300-04 -->
+<!-- Assignment 7 -->
+<!-- 4/19/2022 -->
+
+<html lang="en">
+    <head>
+        <title>Vincent Tran's Book App</title>
+        <meta charset="utf-8">
+        <script src="https://unpkg.com/vue@3"></script>
+        <style>
+            body {
+                text-align: center;
+                background-color: cornflowerblue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Vincent Tran's Book App</h1>
+        <hr>
+        <br>
+
+        <form name="myform">
+            <div>
+                <label for="bookTitle">Enter Book Title:</label>
+                <input type="text" name="bookTitle" id="bookTitle">
+            </div>
+            <div>
+                <label for="bookAuthor">Enter Book Author:</label>
+                <input type="text" name="bookAuthor" id="bookAuthor">
+            </div>
+            <div>
+                <label for="bookSubject">Enter Book Subject:</label>
+                <input type="text" name="bookSubject" id="bookSubject">
+            </div>
+        </form>
+
+        <div id="results">
+            <button v-on:click="test()">
+                Submit
+            </button>
+
+            <br>
+
+            {{ title }}
+
+            <br>
+
+            {{ author }}
+
+            <br>
+
+            {{ subject }}
+        </div>
+
+        <br>
+        <hr>
+        <footer>
+            <p>
+                Vincent Tran &copy; 2022
+            </p>
+        </footer>
+
+        <script>
+            Vue.createApp({
+                data() {
+                    return {
+                        title: "",
+                        author: "",
+                        subject: "",
+                    };
+                },
+                methods: {
+                    test() {
+                        let a = document.myform.bookTitle.value;
+                        let b = document.myform.bookAuthor.value;
+                        let c = document.myform.bookSubject.value;
+
+                        this.title = a;
+                        this.author = b;
+                        this.subject = c;
+                    },
+                },
+            }).mount("#results");
+        </script>
+    </body>
+</html>

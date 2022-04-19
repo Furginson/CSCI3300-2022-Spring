@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Vue Installation</title>
+        <meta charset="utf-8">
+
+        <!-- Installs Vue -->
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+        <h1>This is an introduction to the Vue JavaScript Framework</h1>
+        <hr>
+        
+        <div id="myapp">
+            Hello!
+
+            <p>{{ message }}</p>
+
+            <p>{{ second_message }}</p>
+        </div>
+
+        <div id="counter">
+            Counter: {{ count * 2}}
+        </div>
+
+        <div id="handler">
+            <p>{{ message }}</p>
+            
+            <button @click="reverseMessage"> 
+                Reverse Message
+            </button>
+        </div>
+
+        <!-- Objects begin and end w/ curly braces -->
+
+        <script>
+            Vue.createApp({ // An app that modifies two messages
+                data () { // You can put functions inside of objects, and data() is a function that exists inside of app
+                    return {
+                        message: "Hello, Vue!",
+                        second_message: "This is my second message!"
+                    };
+                },
+            }).mount("#myapp"); // This is similar to getElementById()
+
+            Vue.createApp({ // An app that creates a counter
+                data() { // A Vue function that inserts data
+                    return {
+                        count: 0
+                    };
+                },
+                mounted() { // A Vue function that makes data interactable
+                    setInterval(() => { this.count++; }, 1000); // setInterval is a JavaScript function, not a Vue. 1000 is in ms, which is 1 second
+                }
+            }).mount("#counter");
+
+            Vue.createApp({ // An app that reverses text
+                data() {
+                    return {
+                        message: "Hello Vue.js"
+                    };
+                },
+                methods: { // Allows us to create our own methods
+                    reverseMessage() {
+                        this.message = this.message.split('').reverse().join(''); // Reverses message
+                    }
+                }
+            }).mount("#handler");
+        </script>
+    </body>
+</html>

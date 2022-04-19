@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<!-- Vincent Tran -->
+<!-- CSCI 3300-04 -->
+<!-- Assignment 7 -->
+<!-- 4/19/2022 -->
+
+<html lang="en">
+    <head>
+        <title>Vincent Tran's Distance Conversion Application</title>
+        <meta charset="utf-8">
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+        <h1>Vincent Tran's Distance Conversion Application</h1>
+        <hr>
+
+        <div id="app">
+            Enter Number:
+            <input type="text" v-model="message">
+            Units 
+            <select v-model="units">
+                <option v-for="option in options" :value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+
+            <br>
+
+            Desired Units
+            <select v-model="desiredunits">
+                <option v-for="option in options" :value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+
+            <br>
+
+            {{ convert() }}
+        </div>
+
+        <script>
+            Vue.createApp({
+                data() {
+                    return {
+                        message: "",
+                        units: undefined,
+                        desiredunits: undefined,
+                        options: [
+                            { text: 'Centimeter', value: 'cm' },
+                            { text: 'Meter', value: 'm' },
+                            { text: 'Kilometer', value: 'km' },
+                            { text: 'Inches', value: 'inch' },
+                            { text: 'Feet', value: 'ft' },
+                            { text: 'Miles', value: 'mi' }
+                        ]
+                    };
+                },
+                methods: {
+                    convert() {
+                        if (isNaN(this.message)) {
+                            return 'Invalid input!';
+                        } else if (this.message < 0) {
+                            return 'Invalid input!'
+                        } else if (this.message == "") {
+                            return 'Enter a distance to convert!';
+                        } else {
+                            let num = parseFloat(this.message);
+                            if (this.units == 'cm') {
+                                if (this.desiredunits == 'cm') {
+                                    return num + " centimeters";
+                                } else if (this.desiredunits == 'm') {
+                                    return (num/100) + " meters";
+                                } else if (this.desiredunits == 'km') {
+                                    return (num/100000) + " kilometers";
+                                } else if (this.desiredunits == 'inch') {
+                                    return (num/2.54).toFixed(3) + " inches";
+                                } else if (this.desiredunits == 'ft') {
+                                    return (num/30.48).toFixed(3) + " feet";
+                                } else if (this.desiredunits == 'mi') {
+                                    return (num/160934) + " miles";
+                                }
+                                // FINISHED (ABOVE)
+                            } else if (this.units == 'm') {
+                                if (this.desiredunits == 'cm') {
+                                    return (num*100) + " centimeters";
+                                } else if (this.desiredunits == 'm') {
+                                    return num + " meters";
+                                } else if (this.desiredunits == 'km') {
+                                    return (num/1000) + " kilometers";
+                                } else if (this.desiredunits == 'inch') {
+                                    return (num * 39.37).toFixed(3) + " inches";
+                                } else if (this.desiredunits == 'ft') {
+                                    return (num * 3.281).toFixed(3) + " feet";
+                                } else if (this.desiredunits == 'mi') {
+                                    return (num/1609) + " miles";
+                                }
+                                // FINISHED ABOVE
+                            } else if (this.units == 'km') {
+                                if (this.desiredunits == 'cm') {
+                                    return (num * 100000) + " centimeters";
+                                } else if (this.desiredunits == 'm') {
+                                    return (num * 1000) + " meters";
+                                } else if (this.desiredunits == 'km') {
+                                    return num + " kilometers";
+                                } else if (this.desiredunits == 'inch') {
+                                    return (num * 39370).toFixed(3) + " inches";
+                                } else if (this.desiredunits == 'ft') {
+                                    return (num * 3281).toFixed(3) + " feet";
+                                } else if (this.desiredunits == 'mi') {
+                                    return (num/1.609).toFixed(3) + " miles";
+                                }
+                                // FINISHED ABOVE
+                            } else if (this.units == 'inch') {
+                                if (this.desiredunits == 'cm') {
+                                    return (num * 2.54) + " centimeters";
+                                } else if (this.desiredunits == 'm') {
+                                    return (num/39.37).toFixed(3) + " meters";
+                                } else if (this.desiredunits == 'km') {
+                                    return (num/39370) + " kilometers";
+                                } else if (this.desiredunits == 'inch') {
+                                    return num + " inches";
+                                } else if (this.desiredunits == 'ft') {
+                                    return (num/12).toFixed(3) + " feet";
+                                } else if (this.desiredunits == 'mi') {
+                                    return (num/63360) + " miles";
+                                }
+                                // FINISHED ABOVE
+                            } else if (this.units == 'ft') {
+                                if (this.desiredunits == 'cm') {
+                                    return (num * 30.48) + " centimeters";
+                                } else if (this.desiredunits == 'm') {
+                                    return (num/3.281).toFixed(3) + " meters";
+                                } else if (this.desiredunits == 'km') {
+                                    return (num/3281) + " kilometers";
+                                } else if (this.desiredunits == 'inch') {
+                                    return (num * 12).toFixed(3) + " inches";
+                                } else if (this.desiredunits == 'ft') {
+                                    return num + " feet";
+                                } else if (this.desiredunits == 'mi') {
+                                    return (num/5280) + " miles";
+                                }
+                            } else if (this.units == 'mi') {
+                                alert('mi');
+                            }
+                        }
+                        
+                    }
+                }
+            }).mount("#app");
+        </script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<!-- Vincent Tran -->
+<!-- CSCI 3300-04 -->
+<!-- Assignment 7 -->
+<!-- 4/19/2022 -->
+
+<html lang="en">
+    <head>
+        <title>Vincent Tran's Distance Conversion Application</title>
+        <meta charset="utf-8">
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+    <body>
+        <h1>Vincent Tran's Distance Conversion Application</h1>
+        <hr>
+
+        <div id="app">
+            Enter Number:
+            <input type="text" v-model="message" @keyup.enter="convert">
+            Units 
+            <select v-model="units">
+                <option value="centimeter">Centimeter</option>
+                <option value="meter">Meter</option>
+                <option value="kilometer">Kilometer</option>
+                <option value="inch">Inch</option>
+                <option value="feet">Feet</option>
+                <option value="miles">Mile</option>
+            </select>
+
+            <br>
+
+            Desired Units
+            <select v-model="desiredunits">
+                <option value="centimeter">Centimeter</option>
+                <option value="meter">Meter</option>
+                <option value="kilometer">Kilometer</option>
+                <option value="inch">Inch</option>
+                <option value="feet">Feet</option>
+                <option value="miles">Mile</option>
+            </select>
+
+            <br>
+
+            {{ message }}
+        </div>
+
+        <script>
+            Vue.createApp({
+                data() {
+                    return {
+                        message: undefined,
+                        units: undefined,
+                        desiredunits: undefined,
+                        options: [
+                            
+                        ]
+                    };
+                },
+                methods: {
+                    convert() {
+                        alert("hi"); // must press enter
+                        if (this.units == "centimeter") {
+                            alert("lmao!");
+                        }
+                    }
+                }
+            }).mount("#app");
+        </script>
+    </body>
+</html>
