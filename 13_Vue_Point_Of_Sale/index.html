@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Vue Point of Sale System</title>
+        <meta charset="utf-8">
+        <script src="https://unpkg.com/vue@3"></script>
+        <style>
+            header, footer {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Vue Point of Sale System</h1>
+            <hr>
+            <br>
+        </header>
+
+        <div id="mypos">
+            <p>Here are the products for sale.</p>
+            <ul>
+                <li v-for="(product, index) in products">
+                    Product {{ index+1 }}: {{ product.name }} sells for ${{ product.price.toFixed(2) }}
+                </li>
+            </ul>
+
+            <div>
+                Select a product:
+            </div>
+            <div>
+                <select v-model="tobuy">
+                    <option v-for="product in products" v-bind:value="product.name">
+                        {{ product.name }}
+                    </option>
+                </select>
+            </div>
+
+            <div>
+                Quantity to buy.
+            </div>
+            <div>
+                <select v-model="quantity" v-bind:value="n">
+                    <option v-for="n in 30">
+                        {{ n }}
+                    </option>
+                </select>
+            </div>
+
+            <button v-on:click="purchase">Add Item to Cart</button>
+
+            <hr>
+
+        </div>
+
+        <footer>
+            <br>
+            <hr>
+            <p>Vincent Tran &copy; 2022</p>
+        </footer>
+
+        <script>
+            const app = {
+                data() {
+                    return {
+                        products: [
+                            { "name": "Umbrella", "price": 14.99 },
+                            { "name": "Rain Coat", "price": 119.99 },
+                            { "name": "Swimsuit", "price": 40.00 }
+                        ],
+                        tobuy: "",
+                        quantity: 0,
+                        cart: [],
+                    };
+                },
+                methods: {
+                    purchase() {
+                        
+                    }
+                }
+            };
+
+            Vue.createApp(app).mount("#mypos");
+        </script>
+    </body>
+</html>
